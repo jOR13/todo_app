@@ -10,13 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_09_024813) do
+ActiveRecord::Schema.define(version: 2022_01_12_170204) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "note"
+    t.integer "todo_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
+    t.index ["todo_id"], name: "index_comments_on_todo_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.text "note"
+    t.integer "todo_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["todo_id"], name: "index_notes_on_todo_id"
+  end
 
   create_table "todos", force: :cascade do |t|
     t.text "task"
     t.boolean "completed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "status"
   end
 
+  add_foreign_key "comments", "todos"
+  add_foreign_key "notes", "todos"
 end

@@ -1,13 +1,16 @@
 
 
 <h1 class="title">To Do</h1>
+You have <%= Todo.public_count %> tasks and counting!
 <p class="title" In this section you can see all your to do></p>
   <% @todos.each do |todo| %>
   <div class="card" style="display: flex !important;flex-direction: row;margin-bottom: 15px;justify-content: center; height: 50px; ">
   <ul style="align-self: center;">
-     <li>
-        <%= link_to todo.task, todo %>
-     </li>
+      <% unless todo.archived? %>
+        <li>
+            <%= link_to todo.task, todo %>
+        </li>
+      <% end %>
   </ul>
 </div>
   <% end %>

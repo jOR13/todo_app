@@ -1,4 +1,7 @@
 class TodosController < ApplicationController
+
+  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+  
   def index
     @todos = Todo.all
   end
@@ -40,6 +43,7 @@ class TodosController < ApplicationController
 
   private
   def todo_params
-    params.require(:todo).permit(:task, :completed)
+    params.require(:todo).permit(:task, :completed, :status)
   end
+
 end

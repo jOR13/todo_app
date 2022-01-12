@@ -1,5 +1,12 @@
 <%= form_with model: @todo do |form| %>
-  <div>
+
+  <div class="card" style="
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px;
+">
+    <div>
     <%= form.label :task %><br>
     <%= form.text_field :task %>
     <% @todo.errors.full_messages_for(:task).each do |message| %>
@@ -7,7 +14,12 @@
     <% end %>
   </div>
 
-  <div>
+  <div style="
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+">
     <%= form.label :completed %><br>
     <%= form.check_box :completed %><br>
     <% @todo.errors.full_messages_for(:completed).each do |message| %>
@@ -22,6 +34,7 @@
 
   <div>
     <%= form.submit %>
+  </div>
   </div>
   
 <% end %>

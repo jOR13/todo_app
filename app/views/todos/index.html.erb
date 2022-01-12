@@ -1,7 +1,6 @@
-
-
+<div class="container">
 <h1 class="title">To Do</h1>
-You have <%= Todo.public_count %> tasks and counting!
+You have <%= Todo.all_count %> tasks and counting!
 <p class="title" In this section you can see all your to do></p>
   <% @todos.each do |todo| %>
   <div class="card" style="display: flex !important;flex-direction: row;margin-bottom: 15px;justify-content: center; height: 50px; ">
@@ -18,3 +17,4 @@ You have <%= Todo.public_count %> tasks and counting!
   <%= link_to "Add a new to do", new_todo_path %>
 </div>
 
+</div>

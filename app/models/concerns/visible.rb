@@ -11,6 +11,9 @@ module Visible
     def public_count
       where(status: 'public').count
     end
+    def all_count
+      where(status: 'public').or(where(status: 'private')).or(where(status: 'archived')).count
+    end
   end
 
   def archived?

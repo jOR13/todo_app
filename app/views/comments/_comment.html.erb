@@ -1,10 +1,10 @@
 <% unless comment.archived? %>
   <p>
-    <strong>Notes:</strong>
+    <strong>Write a note:</strong>
     <%= comment.note %>
   </p>
   <p>
-  <%= link_to "Destroy Comment", [comment.todo, comment], data: {
+  <%= link_to "Destroy note", [comment.todo, comment], data: {
                 turbo_method: :delete,
                 turbo_confirm: "Are you sure?"
               } %>
